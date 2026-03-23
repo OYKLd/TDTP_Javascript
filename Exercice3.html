@@ -3,32 +3,27 @@
 <head>
 <meta charset="utf-8">
 
-<!-- BONUS : STYLE -->
 <style>
 body {
-    text-align: center;
     font-family: Arial;
-    background-color: #f4f4f4;
+    background-color: #f2f2f2;
+    margin: 40px;
 }
 
-#resultat {
-    margin: 20px;
-    font-size: 20px;
-    font-weight: bold;
+h2 {
+    margin-top: 20px;
 }
+
+/* Couleurs */
+.q1 { color: red; }
+.q2 { color: green; }
+.q3 { color: blue; }
+.q4 { color: darkblue; }
+.q5 { color: purple; }
 
 button {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 8px;
-    border: none;
-    background-color: #2196F3;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0b7dda;
+    margin-top: 20px;
+    padding: 8px;
 }
 </style>
 
@@ -36,66 +31,81 @@ button:hover {
 
 <body>
 
-<h2>Opérations Mathématiques</h2>
+<!-- QUESTION 1 -->
+<h2>Question 1</h2>
+<p>Le résultat de 4*7 est :</p>
+<p id="res1" class="q1"></p>
 
-<!-- Zone d'affichage -->
-<p id="resultat">Résultat ici...</p>
+<!-- QUESTION 2 -->
+<h2>Question 2</h2>
+<p>Soit a=12, b=14 et c=a+b. c vaut :</p>
+<p id="res2" class="q2"></p>
 
-<!-- Boutons -->
-<button onclick="operation1()">Opération1</button>
-<button onclick="operation2()">Opération2</button>
-<button onclick="operation3()">Opération3</button>
-<button onclick="operation4()">Opération4</button>
-<button onclick="operation5()">Opération5</button>
+<!-- QUESTION 3 -->
+<h2>Question 3</h2>
+<p>Le résultat de d+1 est :</p>
+<p id="res3" class="q3"></p>
+
+<!-- QUESTION 4 -->
+<h2>Question 4</h2>
+<p>Le résultat de cos(d) est :</p>
+<p id="res4" class="q4"></p>
+
+<!-- QUESTION 5 -->
+<h2>Question 5</h2>
+<p>Résolution de ax² + bx + c = 0 :</p>
+<p id="res5" class="q5"></p>
+
+<hr>
+
+<!-- BOUTONS -->
+<button onclick="operation1()">Opération 1</button>
+<button onclick="operation2()">Opération 2</button>
+<button onclick="operation3()">Opération 3</button>
+<button onclick="operation4()">Opération 4</button>
+<button onclick="operation5()">Opération 5</button>
 
 <script>
 
-// VARIABLE GLOBALE d
+/* VARIABLE GLOBALE */
+var d = 0;
 
-var d = 0; // IMPORTANT : en dehors des fonctions
-
-// OPERATION 1 : 7 × 8
-
+/* QUESTION 1 */
 function operation1() {
-    var res = 7 * 8; // multiplication
-    document.getElementById("resultat").innerHTML = "Résultat : " + res;
+    var res = 7 * 8;
+    document.getElementById("res1").innerHTML = res;
 }
 
-// OPERATION 2 : a + b
-
+/* QUESTION 2 */
 function operation2() {
     var a = 12;
     var b = 14;
-    
-    var c = a + b; // addition
-    
-    document.getElementById("resultat").innerHTML = "Résultat : " + c;
+    var c = a + b;
+
+    document.getElementById("res2").innerHTML = c;
 }
 
-// OPERATION 3 : d + 1
-
+/* QUESTION 3 */
 function operation3() {
-    d = d + 1; // on incrémente d
-    
-    document.getElementById("resultat").innerHTML = "d = " + d;
+    d = d + 1;
+    document.getElementById("res3").innerHTML = d;
 }
 
-// OPERATION 4 : cos(d)
-
+/* QUESTION 4 */
 function operation4() {
-    var res = Math.cos(d); // cosinus
-    
-    document.getElementById("resultat").innerHTML = "cos(d) = " + res;
+    var res = Math.cos(d);
+    document.getElementById("res4").innerHTML = res;
 }
 
-// OPERATION 5  ax² + bx + c = 0
-
+/* QUESTION 5 (BONUS) */
 function operation5() {
+
+    // Variables
     var a = 1;
     var b = -3;
     var c = 2;
 
-    // calcul du discriminant
+    // Calcul du discriminant
     var delta = b*b - 4*a*c;
 
     var resultat = "";
@@ -103,18 +113,19 @@ function operation5() {
     if (delta > 0) {
         var x1 = (-b + Math.sqrt(delta)) / (2*a);
         var x2 = (-b - Math.sqrt(delta)) / (2*a);
-        
-        resultat = "Deux solutions : x1=" + x1 + " , x2=" + x2;
+
+        resultat = "Deux solutions : x1 = " + x1 + " , x2 = " + x2;
     }
     else if (delta == 0) {
         var x = -b / (2*a);
-        resultat = "Une solution : x=" + x;
+
+        resultat = "Une solution : x = " + x;
     }
     else {
         resultat = "Pas de solution réelle";
     }
 
-    document.getElementById("resultat").innerHTML = resultat;
+    document.getElementById("res5").innerHTML = resultat;
 }
 
 </script>

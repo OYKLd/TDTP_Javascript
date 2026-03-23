@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<style>
+body {
+    text-align: center;
+    font-family: Arial;
+    background-color: #f4f4f4;
+}
+
+img {
+    margin: 20px;
+    width: 150px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ff9800;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e68900;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Interrupteur</h2>
+
+<!-- IMAGE (par défaut éteinte) -->
+<img id="monImage" src="eteint.jpeg">
+
+<br>
+
+<!-- Boutons -->
+<button onclick="allumer()">Allume</button>
+<button onclick="eteindre()">Eteint</button>
+<button onclick="interrupteur()">Interrupteur</button>
+
+<script>
+
+// ALLUMER 
+
+function allumer() {
+    var x = document.getElementById("monImage"); // récupérer l'image
+    
+    // changer l'image
+    x.src = "allume.jpeg";
+}
+
+// ETEINDRE
+
+function eteindre() {
+    var x = document.getElementById("monImage");
+    
+    x.src = "eteint.jpeg";
+}
+
+// INTERRUPTEUR 
+
+function interrupteur() {
+    var x = document.getElementById("monImage");
+
+    // Vérifie quelle image est affichée
+    if (x.src.includes("eteint.jpeg")) {
+        x.src = "allume.jpeg"; // allume
+    } else {
+        x.src = "eteint.jpeg"; // éteint
+    }
+}
+
+</script>
+
+</body>
+</html>
