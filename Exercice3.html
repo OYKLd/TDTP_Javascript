@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<!-- BONUS : STYLE -->
+<style>
+body {
+    text-align: center;
+    font-family: Arial;
+    background-color: #f4f4f4;
+}
+
+#resultat {
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0b7dda;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Opérations Mathématiques</h2>
+
+<!-- Zone d'affichage -->
+<p id="resultat">Résultat ici...</p>
+
+<!-- Boutons -->
+<button onclick="operation1()">Opération1</button>
+<button onclick="operation2()">Opération2</button>
+<button onclick="operation3()">Opération3</button>
+<button onclick="operation4()">Opération4</button>
+<button onclick="operation5()">Opération5</button>
+
+<script>
+
+// VARIABLE GLOBALE d
+
+var d = 0; // IMPORTANT : en dehors des fonctions
+
+// OPERATION 1 : 7 × 8
+
+function operation1() {
+    var res = 7 * 8; // multiplication
+    document.getElementById("resultat").innerHTML = "Résultat : " + res;
+}
+
+// OPERATION 2 : a + b
+
+function operation2() {
+    var a = 12;
+    var b = 14;
+    
+    var c = a + b; // addition
+    
+    document.getElementById("resultat").innerHTML = "Résultat : " + c;
+}
+
+// OPERATION 3 : d + 1
+
+function operation3() {
+    d = d + 1; // on incrémente d
+    
+    document.getElementById("resultat").innerHTML = "d = " + d;
+}
+
+// OPERATION 4 : cos(d)
+
+function operation4() {
+    var res = Math.cos(d); // cosinus
+    
+    document.getElementById("resultat").innerHTML = "cos(d) = " + res;
+}
+
+// OPERATION 5  ax² + bx + c = 0
+
+function operation5() {
+    var a = 1;
+    var b = -3;
+    var c = 2;
+
+    // calcul du discriminant
+    var delta = b*b - 4*a*c;
+
+    var resultat = "";
+
+    if (delta > 0) {
+        var x1 = (-b + Math.sqrt(delta)) / (2*a);
+        var x2 = (-b - Math.sqrt(delta)) / (2*a);
+        
+        resultat = "Deux solutions : x1=" + x1 + " , x2=" + x2;
+    }
+    else if (delta == 0) {
+        var x = -b / (2*a);
+        resultat = "Une solution : x=" + x;
+    }
+    else {
+        resultat = "Pas de solution réelle";
+    }
+
+    document.getElementById("resultat").innerHTML = resultat;
+}
+
+</script>
+
+</body>
+</html>
